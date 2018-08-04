@@ -7,7 +7,6 @@ import time
 import json
 from bs4 import BeautifulSoup
 import urllib
-import ctils
 from threading import Thread
 from Queue import Queue
 import argparse
@@ -35,7 +34,9 @@ def monitor():
     word_list = ("Presto",)#TODO CHANGE THIS FOR PRESTOS!
 
     results = soup.find_all('div', {"class":"designer"})
-
+    print "made by  - https://twitter.com/thebotsmith"
+    
+    time.sleep(2)
     for result in results:
         if any(word in result.a['title'].lower() for word in word_list):
             product = {}
